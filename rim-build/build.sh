@@ -69,7 +69,7 @@ build()
             # Disable builds with ICU because the ICU libraries are linked against Dinkumware libraries.
             # This will cause crashes because GNU and Dinkumware libraries cannot be mixed.
             ./bjam $BJAM_ARGS \
-                -j 4 \
+                -j 7 \
                 --disable-icu \
                 --with-chrono \
                 --with-date_time \
