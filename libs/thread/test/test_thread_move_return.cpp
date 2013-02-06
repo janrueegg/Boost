@@ -16,7 +16,11 @@ void do_nothing(boost::thread::id* my_id)
 boost::thread make_thread_move_return(boost::thread::id* the_id)
 {
     boost::thread t(do_nothing,the_id);
+#if defined(__QNX__)
+    return boost::thread(boost::move(t));
+#else
     return boost::move(t);
+#endif
 }
 
 void test_move_from_function_move_return()

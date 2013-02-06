@@ -537,10 +537,20 @@ static OBJECT * global_rule_name( RULE * r )
         char name[4096] = "";
         if ( r->module->name )
         {
+#if defined(__QNX__)
+            // PR 155594: Call proper strcat function
+            strlcat( name, object_str( r->module->name ), sizeof( name ) - 1 );
+            strlcat( name, ".", sizeof( name ) - 1 );
+#else
             strncat( name, object_str( r->module->name ), sizeof( name ) - 1 );
             strncat( name, ".", sizeof( name ) - 1 );
+#endif
         }
+#if defined(__QNX__)
+        strlcat( name, object_str( r->name ), sizeof( name ) - 1 );
+#else
         strncat( name, object_str( r->name ), sizeof( name ) - 1 );
+#endif
         return object_new( name );
     }
 }
