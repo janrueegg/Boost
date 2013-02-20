@@ -2,8 +2,8 @@ using qcc
 # Version
     :
 
-# C++-compile-command (use GNU C++ libraries)
-    : $QNX_HOST/usr/bin/QCC -Vgcc_ntoarmv7le_gpp
+# C++-compile-command (use Dinkum C++ libraries)
+    : $QNX_HOST/usr/bin/QCC -Vgcc_ntoarmv7le -Y_cpp -fstack-protector-strong -mcpu=cortex-a9 -mfloat-abi=softfp -mfpu=neon
 
 # Compiler options
     : <compileflags>"-D__QNX__"
