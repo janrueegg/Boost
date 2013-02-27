@@ -58,9 +58,9 @@ build()
                 BJAM_ARGS="--clean"
             fi
 
-            if [ "$VARIANT" == "release" ] ; then
-                BJAM_ARGS="$BJAM_ARGS optimization=space"
-            fi
+            #if [ "$VARIANT" == "release" ] ; then
+            #    BJAM_ARGS="$BJAM_ARGS optimization=space"
+            #fi
 
             if [ "$PYTHON_SRC_DIR" != "" ] && [ -d $PYTHON_SRC_DIR ] ; then
                 BJAM_ARGS="$BJAM_ARGS include=$PYTHON_SRC_DIR:$PYTHON_SRC_DIR/Include --with-python"
